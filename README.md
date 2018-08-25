@@ -4,6 +4,17 @@ Reactjs Bootstrap DataTable
 <h2>Sample</h2>
 
 ```
+import {DataTable, HeaderTable} from '../_components/Table';
+import {Price} from '../_helpers';
+
+function priceFormat(cell) {
+    return (
+        <Price value={cell} isText={true}/>
+    );
+}
+
+...
+
 <DataTable
   data={saving}
   keyField={"SavingId"}
@@ -23,6 +34,9 @@ Reactjs Bootstrap DataTable
   <HeaderTable title={"سال"} dataField={"Year"} headerAlign={"right"}  dataSort/>
   <HeaderTable title={"ماه"} dataField={"Month"} headerAlign={"right"}  dataSort/>
 </DataTable>
+
+...
+
 ```
 
 <h2>Props</h2>
