@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {ConfirmMessage} from '../../_components/Confirm';
+// import {ConfirmMessage} from '../../_components/Confirm';
+import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+
 import './css/DataTable.css';
 import sort from './images/sort.png';
 import sort_up from './images/sort-up.png';
@@ -298,17 +300,91 @@ export class DataTable extends Component {
 
                 <ConfirmMessage
                     ref={"confirm"}
-                    title={"حذف"}
-                    message={"آیا اطلاعات حذف گردد ؟"}
-                    okTitle={"حذف اطلاعات"}
-                    cancelTitle={"انصراف"}
+                    title={((options && options.DeleteTitle)?options.DeleteTitle:'Delete')}
+                    message={((options && options.DeleteAlarm)?options.DeleteAlarm:"Will the data be deleted?")}
+                    okTitle={((options && options.DeleteBtnOkTitle)?options.DeleteBtnOkTitle:"Delete")}
+                    cancelTitle={((options && options.DeleteBtnOkCancel)?options.DeleteBtnOkCancel:"Cancel")}
                     onConfirm={this.deletConfirm}
                     confirmOptions={"danger"}
+                    isRtl={((options && options.isRtl)?true:false)}
                 />
             </div>
         );
     }
 }
+
+
+class ConfirmMessage extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isOpened: false
+        }
+        this.onClose = this.onClose.bind(this);
+        this.onConfirm = this.onConfirm.bind(this);
+        this.show = this.show.bind(this);
+    }
+
+
+    onClose(event) {
+        if (event) {
+            event.stopPropagation();
+        }
+        this.setState({
+            isOpened: false
+        });
+
+        if (typeof this.props.onClose === 'function') {
+            this.props.onClose();
+        }
+    }
+
+    onConfirm(event) {
+        event.stopPropagation();
+        this.setState({
+            isOpened: false
+        });
+        this.props.onConfirm();
+    }
+
+
+    show() {
+        this.setState({isOpened: true});
+    }
+
+    render() {
+        const {title, message, okTitle, cancelTitle, confirmOptions, isRtl} = this.props;
+        return (
+            <div>
+                <Modal isOpen={this.state.isOpened} toggle={this.onClose} className={((isRtl)?"rtl":"")}>
+                    <ModalHeader toggle={this.onClose}>{title}</ModalHeader>
+                    <ModalBody>
+                        <p>{message}</p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color={(confirmOptions) ? confirmOptions : "primary"}
+                                onClick={this.onConfirm}>{okTitle}</Button>{' '}
+                        <Button color="secondary" onClick={this.onClose}>{cancelTitle}</Button>
+                    </ModalFooter>
+                </Modal>
+            </div>
+        );
+    }
+}
+
+
+ConfirmMessage.propTypes = {
+    title: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    okTitle: PropTypes.string.isRequired,
+    cancelTitle: PropTypes.string.isRequired,
+    onConfirm: PropTypes.func,
+    isRtl:PropTypes.bool,
+    confirmOptions: PropTypes.oneOf(['primary', 'secondary', 'success', 'info', 'warning', 'danger'])
+};
+
 
 DataTable.propTypes = {
     data: PropTypes.array.isRequired,
