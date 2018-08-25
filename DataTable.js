@@ -79,7 +79,7 @@ function Header(props) {
 }
 
 function Footer(props) {
-    const {page, pageClick} = props;
+    const {page, pageClick,options} = props;
     console.log(page.total);
     const ar = [];
     for (var i = 0; i < page.total; i++)
@@ -95,11 +95,15 @@ function Footer(props) {
             <nav aria-label="Page navigation example">
                 <ul className="pagination justify-content-center">
                     <li className={"page-item " + ((page.index == 0 || page.total < 2) ? 'disabled' : '')}>
-                        <button className="page-link" onClick={() => pageClick(page.index - 1)}>قبلی</button>
+                        <button className="page-link" onClick={() => pageClick(page.index - 1)}>
+                            {(options && options.previous)?options.previous:'Previous'}
+                        </button>
                     </li>
                     {pageList}
                     <li className={"page-item " + ((page.total == page.index + 1 || page.total < 2) ? 'disabled' : '')}>
-                        <button className="page-link" onClick={() => pageClick(page.index + 1)}>بعدی</button>
+                        <button className="page-link" onClick={() => pageClick(page.index + 1)}>
+                            {(options && options.next)?options.next:'Next'}
+                        </button>
                     </li>
                 </ul>
             </nav>
@@ -244,7 +248,7 @@ export class DataTable extends Component {
 
 
     render() {
-        const {children, striped, hover, deleteRow, keyField, dark} = this.props;
+        const {children, striped, hover, deleteRow, keyField, dark , options} = this.props;
         const {list, page} = this.state;
 
 
@@ -289,7 +293,7 @@ export class DataTable extends Component {
                         page={page}
                     />
                 </table>
-                <Footer page={page} pageClick={this.pageClick}/>
+                <Footer page={page} pageClick={this.pageClick} options={options}/>
 
                 <ConfirmMessage
                     ref={"confirm"}
