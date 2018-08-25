@@ -34,7 +34,7 @@ function priceFormat(cell,row) {
           DeleteTitle:'حذف',
           DeleteAlarm:'آیا مطمئن هستید؟',
           DeleteBtnOkTitle:'حذف اطلاعات',
-          DeleteBtnOkCancel:'انصراف',
+          DeleteBtnCancelTitle:'انصراف',
           isRtl:true
       }
   }
