@@ -6,7 +6,7 @@ npm install --save reactstrap
 
 
 
-
+![alt text](https://github.com/saeidtf/DataTable/blob/master/images/table.jpg "Sample")
 
 
 <h2>Sample</h2>
