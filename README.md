@@ -1,8 +1,8 @@
 # DataTable
 Reactjs Bootstrap DataTable 
 
-# first install reactstrap
-npm i reactstrap --save
+<h3>first install reactstrap<h3>
+npm install --save reactstrap
 
 <h2>Sample</h2>
 
