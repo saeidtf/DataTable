@@ -314,11 +314,11 @@ DataTable.propTypes = {
     keyField: PropTypes.string.isRequired,
     striped: PropTypes.bool,
     hover: PropTypes.bool,
-    pagination: PropTypes.bool,
     exportCSV: PropTypes.bool,
     deleteRow: PropTypes.bool,
     deleteEvent: PropTypes.func,
-    dark: PropTypes.bool
+    dark: PropTypes.bool,
+    options:PropTypes.object
 };
 
 Header.propTypes = {
