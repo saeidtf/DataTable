@@ -303,7 +303,7 @@ export class DataTable extends Component {
                     title={((options && options.DeleteTitle)?options.DeleteTitle:'Delete')}
                     message={((options && options.DeleteAlarm)?options.DeleteAlarm:"Will the data be deleted?")}
                     okTitle={((options && options.DeleteBtnOkTitle)?options.DeleteBtnOkTitle:"Delete")}
-                    cancelTitle={((options && options.DeleteBtnOkCancel)?options.DeleteBtnOkCancel:"Cancel")}
+                    cancelTitle={((options && options.DeleteBtnCancelTitle)?options.DeleteBtnCancelTitle:"Cancel")}
                     onConfirm={this.deletConfirm}
                     confirmOptions={"danger"}
                     isRtl={((options && options.isRtl)?true:false)}
