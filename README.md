@@ -30,7 +30,12 @@ function priceFormat(cell,row) {
       {
           previous:'قبلی',
           next:'بعدی',
-          searchPlaceholder:'جستجو'
+          searchPlaceholder:'جستجو',
+          DeleteTitle:'حذف',
+          DeleteAlarm:'آیا مطمئن هستید؟',
+          DeleteBtnOkTitle:'حذف اطلاعات',
+          DeleteBtnOkCancel:'انصراف',
+          isRtl:true
       }
   }
   striped hover dark
