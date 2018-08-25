@@ -263,7 +263,8 @@ export class DataTable extends Component {
             <div>
                 <div className={"form-row"}>
                     <div className={"form-group col-md-3"}>
-                        <input type={"text"} className={"form-control form-control-sm"} placeholder={"جستجو"} onChange={this.search}/>
+                        <input type={"text"} className={"form-control form-control-sm"}
+                               placeholder={((options && options.searchPlaceholder)?options.searchPlaceholder:'Search ...')} onChange={this.search}/>
                     </div>
                     <div className={"form-group col-md-1"}>
                         <select className={"form-control form-control-sm"} value={page.offset} onChange={this.changeOffset}>
