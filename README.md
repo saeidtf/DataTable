@@ -21,7 +21,8 @@ function priceFormat(cell,row) {
   options={
       {
           previous:'قبلی',
-          next:'بعدی'
+          next:'بعدی',
+          searchPlaceholder:'جستجو'
       }
   }
   striped hover dark
