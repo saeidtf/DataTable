@@ -64,8 +64,8 @@ function priceFormat(cell,row) {
     dataField: PropTypes.string.isRequired, // Field Name
     width: PropTypes.string, // Width Column
     dataSort: PropTypes.bool, // Sorted
-    headerAlign:PropTypes.string,//To display the text
-    dataFormat: PropTypes.func, //Type of text display
+    headerAlign:PropTypes.string,//align display the text
+    dataFormat: PropTypes.func, // show custom text display
     isRowNumber: PropTypes.bool // Will the row index be displayed?
 }
 ```
