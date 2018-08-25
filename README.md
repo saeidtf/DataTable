@@ -7,7 +7,7 @@ Reactjs Bootstrap DataTable
 import {DataTable, HeaderTable} from '../_components/Table';
 import {Price} from '../_helpers';
 
-function priceFormat(cell) {
+function priceFormat(cell,row) {
     return (
         <Price value={cell} isText={true}/>
     );
